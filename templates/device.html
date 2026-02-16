@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="center">
+
+<div class="card">
+    <h1>SmartVision Device</h1>
+
+    <div class="btn-group">
+        <button class="big-btn" onclick="powerOn()">🔌 Power</button>
+        <button class="big-btn" onclick="goWalking()">🚶 Walking Mode</button>
+        <button class="big-btn" onclick="goCompanion()">💬 Companion Mode</button>
+    </div>
+
+    <p id="status"></p>
+</div>
+
+<script>
+function powerOn(){
+    document.getElementById("status").innerHTML="Powering on...";
+    
+    fetch("/power")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("status").innerHTML=data.status;
+    });
+}
+
+function goWalking(){
+    window.location.href="/walking_page";
+}
+
+function goCompanion(){
+    window.location.href="/companion_page";
+}
+</script>
+
+</body>
+</html>

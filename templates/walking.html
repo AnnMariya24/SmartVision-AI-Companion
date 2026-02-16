@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="center">
+
+<div class="card">
+    <h1>🚶 Walking Mode</h1>
+    <p>Object detection and safety alerts running</p>
+
+    <button onclick="startDetection()">Start Camera Detection 🎥</button>
+
+    <p id="status"></p>
+
+    <br>
+    <button onclick="history.back()">⬅ Back</button>
+</div>
+
+<script>
+function startDetection(){
+    document.getElementById("status").innerHTML="Launching AI vision...";
+
+    fetch("/start_detection")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("status").innerHTML=data.status;
+    });
+}
+</script>
+
+</body>
+</html>

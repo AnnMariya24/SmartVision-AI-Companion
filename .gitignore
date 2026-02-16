@@ -1,0 +1,147 @@
+############################################
+# 🐍 PYTHON CACHE & COMPILED FILES
+############################################
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.pyo
+
+############################################
+# 💻 VIRTUAL ENVIRONMENTS
+############################################
+smartenv/
+venv/
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+############################################
+# 🔐 ENVIRONMENT VARIABLES / SECRETS
+############################################
+.env
+.env.*
+*.env
+
+############################################
+# 🤖 AI / ML MODELS (VERY LARGE FILES)
+############################################
+# YOLO / Deep Learning models
+*.h5
+*.hdf5
+*.keras
+*.pb
+*.tflite
+*.onnx
+*.engine
+*.ckpt
+*.weights
+*.pt
+*.pth
+
+# Model folders
+models/
+yolo_models/
+checkpoints/
+weights/
+runs/
+detections/
+vosk-model*/
+
+############################################
+# 🎥 MEDIA FILES (VIDEOS / AUDIO / IMAGES)
+############################################
+# Videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# Audio recordings (voice assistant)
+*.wav
+*.mp3
+*.aac
+recordings/
+audio/
+
+# Images / captured frames
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+captured_frames/
+screenshots/
+
+############################################
+# 📊 DATASETS & TRAINING FILES
+############################################
+dataset/
+datasets/
+data/
+training_data/
+face_dataset/
+emotion_dataset/
+
+############################################
+# 🧾 LOG FILES & TEMP FILES
+############################################
+*.log
+logs/
+tmp/
+temp/
+cache/
+*.cache
+
+############################################
+# 📓 JUPYTER NOTEBOOK CHECKPOINTS
+############################################
+.ipynb_checkpoints/
+
+############################################
+# 🗄️ DATABASE FILES (LOCAL)
+############################################
+*.db
+*.sqlite3
+instance/
+
+############################################
+# 🖥️ OS GENERATED FILES
+############################################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+############################################
+# 💻 IDE / EDITOR SETTINGS
+############################################
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+############################################
+# 📦 PYTHON BUILD FILES
+############################################
+build/
+dist/
+*.egg-info/
+.eggs/
+
+############################################
+# 🔥 FLASK SPECIFIC
+############################################
+instance/
+.webassets-cache
+
+############################################
+# 📡 STREAMING / CAMERA CACHE
+############################################
+stream_cache/
+camera_cache/
+frames/

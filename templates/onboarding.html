@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartVision Onboarding</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+/* Glass Card */
+.card{
+    width:420px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,0,0,0.4);
+    animation: fadeIn 1s ease;
+}
+
+/* Title */
+h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+/* Text */
+p{
+    opacity:0.9;
+    margin-bottom:30px;
+}
+
+/* Button */
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px rgba(0,114,255,0.7);
+}
+
+/* Slide animation */
+.fade{
+    animation: slideFade 0.6s;
+}
+
+@keyframes slideFade{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card fade" id="slideBox">
+    <div class="icon">👁️</div>
+    <h1>Welcome to SmartVision</h1>
+    <p>AI assistant designed for blind and visually impaired people.</p>
+    <button onclick="nextSlide()">Next →</button>
+</div>
+
+<script>
+let slide = 1;
+const box = document.getElementById("slideBox");
+
+function changeSlide(icon,title,text,btnAction,btnText){
+    box.classList.remove("fade");
+    void box.offsetWidth;
+    box.classList.add("fade");
+
+    box.innerHTML = `
+        <div class="icon">${icon}</div>
+        <h1>${title}</h1>
+        <p>${text}</p>
+        <button onclick="${btnAction}">${btnText}</button>
+    `;
+}
+
+function nextSlide(){
+    slide++;
+
+    if(slide==2){
+        changeSlide(
+            "🚶‍♂️",
+            "Safe Navigation",
+            "Detects objects and warns about nearby obstacles in real-time.",
+            "nextSlide()",
+            "Next →"
+        );
+    }
+
+    else if(slide==3){
+        changeSlide(
+            "🤖",
+            "Friendly AI Companion",
+            "Talk, listen and get emotional support anytime.",
+            "goDevice()",
+            "Open Device 🚀"
+        );
+    }
+}
+
+function goDevice(){
+    window.location.href="/device";
+}
+</script>
+
+</body>
+</html>

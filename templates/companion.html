@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="center">
+
+<div class="card">
+    <h1>💬 Companion Mode</h1>
+    <p>Talk with SmartVision AI Assistant</p>
+
+    <button onclick="startVoice()">Start Talking 🎤</button>
+
+    <p id="status"></p>
+
+    <br>
+    <button onclick="history.back()">⬅ Back</button>
+</div>
+
+<script>
+function startVoice(){
+    document.getElementById("status").innerHTML="Starting voice assistant...";
+
+    fetch("/start_voice")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("status").innerHTML=data.status;
+    });
+}
+</script>
+
+</body>
+</html>
