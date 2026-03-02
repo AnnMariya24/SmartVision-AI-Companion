@@ -47,10 +47,13 @@ while True:
 
     # 🔵 YOLO Detection
     yolo_results = detector.model(frame, conf=0.35, verbose=False)[0]
-    objects = detector.detect_objects(frame)
+    objects = detector.detect_objects(yolo_results)
 
     # 😊 Emotion detection (future use)
-    emotions = emotion.detect_emotions(frame)
+    if int(time.time()) % 3 == 0:
+        emotions = emotion.detect_emotions(frame)
+    else:
+        emotions = []
 
     # 📏 Distance estimation
     distance_data = distance_estimator.analyze_scene(yolo_results)

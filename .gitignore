@@ -145,3 +145,4 @@ instance/
 stream_cache/
 camera_cache/
 frames/
+.env

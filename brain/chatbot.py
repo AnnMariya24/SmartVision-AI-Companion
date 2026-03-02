@@ -40,7 +40,6 @@ class ChatBot:
             print("🤖 Bot:", reply)
 
             # 🔊 Speak the reply
-            self.voice.speak(reply)
 
             return reply
 

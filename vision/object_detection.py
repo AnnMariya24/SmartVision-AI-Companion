@@ -7,11 +7,10 @@ class ObjectDetector:
         self.class_names = self.model.names
         print("✅ YOLO Ready")
 
-    def detect_objects(self, frame):
+    def detect_objects(self, results):
         """
-        Returns only object names (strings)
+        Takes YOLO results and returns only object names (strings)
         """
-        results = self.model(frame, conf=0.35, verbose=False)[0]
 
         detected_objects = []
 
@@ -21,7 +20,4 @@ class ObjectDetector:
                 label = self.class_names[cls_id]
                 detected_objects.append(label)
 
-        # remove duplicates
-        detected_objects = list(set(detected_objects))
-
-        return detected_objects
+        return list(set(detected_objects))
