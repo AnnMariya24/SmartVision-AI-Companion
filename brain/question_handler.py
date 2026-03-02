@@ -45,5 +45,13 @@ class QuestionHandler:
     # 🧠 MAIN PROCESS (HYBRID MODE)
     # 🧠 MAIN PROCESS (OFFLINE DEMO MODE)
     def process(self, question):
+
+        # If internet available → use Groq
+        if self.internet_available():
+            print("🌐 Internet available → Using Groq")
+            return self.bot.ask(question)
+
+        # Otherwise → fallback
+        print("⚠️ No internet → Using offline mode")
         return self.offline_answers(question)
 

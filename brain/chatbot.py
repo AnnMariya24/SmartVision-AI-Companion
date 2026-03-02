@@ -1,25 +1,26 @@
-from openai import OpenAI
+from groq import Groq
 from voice.voice_engine import VoiceEngine
+
 
 class ChatBot:
     def __init__(self):
-        # 🔑 OpenAI client
-        self.client = OpenAI(
-            api_key="PUT_YOUR_NEW_KEY_HERE"
+        # 🔑 Groq client
+        self.client = Groq(
+            api_key="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"
         )
 
         # 🔊 Voice engine
         self.voice = VoiceEngine()
 
-        print("🤖 SmartVision Chatbot ready")
+        print("🤖 SmartVision Groq Chatbot ready")
 
     def ask(self, text):
         """
-        Ask OpenAI + Speak reply
+        Ask Groq + Speak reply
         """
         try:
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="llama-3.1-8b-instant",  # Fast + good quality
                 messages=[
                     {
                         "role": "system",
@@ -38,13 +39,13 @@ class ChatBot:
 
             print("🤖 Bot:", reply)
 
-            # 🔊 SPEAK THE REPLY HERE
+            # 🔊 Speak the reply
             self.voice.speak(reply)
 
             return reply
 
         except Exception as e:
-            print("Chatbot error:", e)
+            print("Groq Chatbot error:", e)
 
             fallback = "Sorry, I am having trouble connecting to the internet."
             self.voice.speak(fallback)
